@@ -568,9 +568,9 @@
 >   const appDiv = document.querySelector("#app");
 >   appDiv.innerHTML = "<div>" + "<button>1</button>" + "<button>2</button>" + "</div>";
 >   ```
->   
+>
 >   模板字符串（template string）是增强版的字符串，用反引号（`）标识。可以嵌套变量，可以换行，可以包含单引号和双引号。
-> 
+>
 > ```js
 >  //定义字符串：
 >   // es5:定义字符串，可以使用双引号或单引号
@@ -579,7 +579,7 @@
 >   // es6:可以使用反引号
 >   let str = `三百六十五枝烛光`;
 > ```
-> 
+>
 >   ```js
 > // 可以换行，可以包含单引号和双引号。嵌套变量
 > let btnVal = "第三个按钮";
@@ -593,22 +593,22 @@
 > const appDiv = document.querySelector("#app");
 > appDiv.innerHTML = str;
 >   ```
-> 
+>
 > - 它可以当作普通字符串使用，也可以用来定义多行字符串。模板字符串中嵌入变量，需要将变量名写在`${}`之中。
-> 
+>
 >   ```js
 >   let num = 1;
->   let str = `
->  	有一个女生，有一天上班忘记了化妆，结果记旷工${num}次。
->   `
->  console.log(str);// 有一个女生，有一天上班忘记了化妆，结果记旷工1次。
->   ```
+>   let str = `有一个女生，有一天上班忘记了化妆，结果记旷工${num}次。  `
+>   console.log(str);// 有一个女生，有一天上班忘记了化妆，结果记旷工1次。
+>
+>
 > 
->  - 大括号内部可以放入任意的 JavaScript 表达式，可以进行运算，以及引用对象属性。
+>
+>   ```js
 > 
->    ```js
->    var arr = [1,2,3,4,5];
->    var arr2 = ["师","法","魔","级","超"];
+>  //大括号内部可以放入任意的 JavaScript 表达式，可以进行运算，以及引用对象属性。
+>   var arr = [1,2,3,4,5];
+>   var arr2 = ["师","法","魔","级","超"];
 >   var obj = {
 >        userName:"张天师"
 >   }
@@ -625,24 +625,24 @@
 >    const appDiv = document.querySelector("#app");
 >    appDiv.innerHTML = str;
 >    console.log(str);
->    ```
-> 
->  - 模板字符串之中还能调用函数。
-> 
->    ```js
+>    //模板字符串之中还能调用函数。
 >    function fn(){
->        return 123;
+>     return 123;
 >   }
->    let str = `
+> let str = `
 >   <div>${fn()}</div>
 >    `
->    const appDiv = document.querySelector("#app");
->    appDiv.innerHTML = str;
->    ```
+> const appDiv = document.querySelector("#app");
+> appDiv.innerHTML = str;
+>   ```
+>
+> 
+>
+>    ```js
 > 
 > - 模板字符串应用
 > 
->   ```js
+>   js
 >   //应用一:将数组当中的数字用h3包裹，放置到Id为one的div中
 >   // 第一种方法
 >  var arr = [1,2,3,4];// <h3>1</h3><h3>2</h3><h3>3</h3><h3>4</h3>
@@ -650,19 +650,19 @@
 >  arr.forEach(function (item) {
 >       // es5
 >       // str += "<h3>"+item+"</h3>";
->   
+> 
 >       // es6
 >       str += `<h3>${item}</h3>`;
 >   })
 >   document.querySelector("#one").innerHTML = str;
->   
+> 
 >     // 第二种方法
 >   var arr = [1,2,3,4];// ==> ["<h3>1</h3>","<h3>2</h3>","<h3>3</h3>","<h3>4</h3>"]
 >   var arr2 = arr.map(function (item) {
 >       return `<h3>${item}</h3>`
 >   })
 >     document.querySelector("#one").innerHTML = arr2.join("");
->   
+> 
 >   // 应用二
 >    var topBarNav=[
 >        {
@@ -707,7 +707,7 @@
 >                       }).join("")}
 >           </nav>
 >   `;
->   ```
+>    ```
 
 ### 3.2、字符串的新增方法
 
@@ -726,7 +726,7 @@
 >   console.log("trimStart:","青龙"+str.trimStart()+"白虎");
 >   // - `trimEnd()` 去除尾部（右侧）的空格
 >   console.log("trimEnd:","青龙"+str.trimEnd()+"白虎");
->   
+>     
 >   // 应用时：（一般在提交表单时，文本框的内容是需要去除左右两侧的空格的）
 >   document.querySelector("button").onclick = function () {
 >       console.log(document.querySelector("input").value.trim())
@@ -781,7 +781,7 @@
 >   // 指定长度为10，如果str不足10的话，用0补充。
 >   console.log(str.padStart(10,"0"));// 0000002021
 >   console.log(str.padStart(12,"abc"));// abcabcab2021
->   
+>     
 >   // - `padEnd()`,//当字符串不够某个长度的时候，在后边补充任意字符
 >   console.log(str.padEnd(10,"0"));// 2021000000
 >   console.log(str.padEnd(12,"abc"));// 2021abcabcab
