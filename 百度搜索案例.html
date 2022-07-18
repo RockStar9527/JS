@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>百度搜索</title>
+</head>
+
+<body>
+    <form action="https://www.baidu.com/s">
+        <input type="text" autocomplete="off" name="wd" id="">
+    </form>
+    <div id="sc"></div>
+</body>
+<script>
+    const { log } = console //对象解构赋值 log === console.log
+    const input = document.querySelector('input')
+    function my(obj) {
+        document.querySelector('#sc').innerHTML = `${obj.g instanceof Array ? obj.g.map(item => `<p>${item.q}</p>`).join('') : ''}
+            `
+        log(obj)
+    }
+    input.onkeyup = function () {
+        const script = document.createElement('script')
+        script.src = `https://www.baidu.com/sugrec?prod=pc&wd=${this.value}&cb=my`
+        document.body.appendChild(script)
+        document.body.removeChild(script)
+    } 
+</script>
+
+</html>
